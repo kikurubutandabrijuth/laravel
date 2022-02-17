@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/toto', function () {
+    return view('toto');
+});
+Route::get('/master', function () {
+    return view('master');
+});
+Route::get('/etudiant', function () {
+    $etudiants = ['toto','titi'];
+    return view('etudiant', compact('etudiants'));
+});
+Route::get('/paiement', function () {
+    return view('paiement
+    ');
+});
+
