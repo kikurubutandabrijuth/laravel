@@ -18,7 +18,7 @@
 <body>
 <ul id="menu">
     <li><a href="/etudiant">etudiant</a></li>
-    <li><a href="/paiement">paiement</a></li>
+    <li><a href="{{route('paiement')}}">paiement</a></li>
 
 </ul>
 
