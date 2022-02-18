@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/toto', function () {
+    return view('toto');
+});
+Route::get('/master', function () {
+    return view('master');
+});
+Route::get('/etudiant', function () {
+    $etudiants = ['toto','titi'];
+    return view('etudiant', compact('etudiants'));
+});
+Route::get('/finance', function () {
+    return view('paiement');
+})->name('paiement');
+Route::get('/new_etudiant', function () { 
+    return view('new_etudiant');
+
+})->name('new_etudiant');
+
+Route::post('/store_etudiant', function (Request $request) {
+    \DB::table('etudiants')->insert([
+        'nom'=>$request->nom,
+        'age'=>$request->age
+    ]);
+})->name('store_etudiant');
