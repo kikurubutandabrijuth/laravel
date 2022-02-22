@@ -1,5 +1,6 @@
-@extends('master')
+@extends('layout.master')
 @section('contenu')
+
 <form method="POST" action="{{route('store_etudiant')}}">
     @csrf
     <input type="text" name="nom" placeholder="entrer votre nom">

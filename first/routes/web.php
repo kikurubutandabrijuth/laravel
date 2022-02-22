@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+Use App\Http\Controllers\Etudiantcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,7 @@ Route::get('/toto', function () {
 Route::get('/master', function () {
     return view('master');
 });
-Route::get('/etudiant', function () {
-    $etudiants = ['toto','titi'];
-    return view('etudiant', compact('etudiants'));
-});
+Route::get('/etudiant',[Etudiantcontroller::class ,'index']);
 Route::get('/finance', function () {
     return view('paiement');
 })->name('paiement');
@@ -35,9 +33,8 @@ Route::get('/new_etudiant', function () {
 
 })->name('new_etudiant');
 
-Route::post('/store_etudiant', function (Request $request) {
-    \DB::table('etudiants')->insert([
-        'nom'=>$request->nom,
-        'age'=>$request->age
-    ]);
-})->name('store_etudiant');
+
+Route::post('/store_etudiant',[Etudiantcontroller::class ,'store'])->name('store_etudiant');
+
+Route::get('/edit_etudiant/{id}',[Etudiantcontroller::class ,'edit'])->name('edit');
+Route::post('/update_etudiant',[Etudiantcontroller::class ,'update'])->name('update_etudiant');
