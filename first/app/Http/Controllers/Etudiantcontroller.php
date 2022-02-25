@@ -23,8 +23,12 @@ class Etudiantcontroller extends Controller
         ]);
        
        // return back()->with('message','insertion avec succes');
-       return\redirect()->route('etudiant')->with('message','insertion reussi  avec succes');
-    }
+    //    return\redirect()->route('etudiant')->with('message','insertion reussi  avec succes');
+return response()->json([
+    "message"=>"insertion avec succes"
+]);
+
+}
 
 
     public function edit($id){
