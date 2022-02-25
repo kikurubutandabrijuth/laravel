@@ -1,7 +1,12 @@
 @extends('layout.master')
 @section('contenu')
+<div class="container">  
+      @if (\Session::has('message'))
+         <div class="alert alert-primary">{{\Session::get('message')}}</div>
+      @endif
+   </div>
 <p>hello etudiant</p>
-<button class=" btn btn-primary"><a href="new_etudiant">new etudiant</a></button>
+<button class=" btn "><a href="new_etudiant" >new etudiant</a></button>
 <div class="container">
 <table class=" table table-bordered stripped mt-2"> 
     <thead>
@@ -18,8 +23,9 @@
  <td> {{$item->nom}} </td>
 <td>  {{$item->age}} </td>
   <td>   
-    <a href="{{'/edit_etudiant/'.$item->id}}">edit |</a>
-    <a href="#">delete</a>
+    <a href="{{'/edit_etudiant/'.$item->id}}" class="btn btn-success">edit |</a>
+  
+    <a href="{{'/delete_etudiant/'.$item->id}} " class="btn btn-warning">delete</a>
 </tr>
 @endforeach
     </tbody>
