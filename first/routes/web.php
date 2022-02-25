@@ -24,7 +24,7 @@ Route::get('/toto', function () {
 Route::get('/master', function () {
     return view('master');
 });
-Route::get('/etudiant',[Etudiantcontroller::class ,'index']);
+Route::get('/etudiant',[Etudiantcontroller::class ,'index'])->name('etudiant');
 Route::get('/finance', function () {
     return view('paiement');
 })->name('paiement');
@@ -36,5 +36,6 @@ Route::get('/new_etudiant', function () {
 
 Route::post('/store_etudiant',[Etudiantcontroller::class ,'store'])->name('store_etudiant');
 
-Route::get('/edit_etudiant/{id}',[Etudiantcontroller::class ,'edit'])->name('edit');
+Route::get('/edit_etudiant/{id}',[Etudiantcontroller::class ,'edit'])->name('edit_etudiant');
 Route::post('/update_etudiant',[Etudiantcontroller::class ,'update'])->name('update_etudiant');
+Route::get('/delete_etudiant/{id}',[Etudiantcontroller::class ,'destroy'])->name('delete_etudiant');

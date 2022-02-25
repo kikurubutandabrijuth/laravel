@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('contenu')
 
+
 <div class="container">
     <form  action=" {{ route('update_etudiant')}}"  method="POST" >
         @csrf
@@ -14,7 +15,7 @@
             <input type="number" class="form-control"  name="age" value="{{$etudiant->age}}" required>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">enregistrer</button>
+            <button type="submit" class="btn btn-primary">Modifier</button>
      
         </div>
        
